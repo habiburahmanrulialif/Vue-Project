@@ -1,16 +1,19 @@
 <template>
-  <div>Reaction Timer</div>
-  <button @click="game.start">Play</button>
-
+  <h1>Reaction Timer</h1>
+  <button @click="game.start" :disabled="game.isPlaying">Play</button>
   <Block />
+  <button @click="game.reset" :disabled="!game.greenBox">Play Again</button>
 </template>
 
 <script setup>
 import Block from './views/Blocks.vue'
-import Result from './views/Results.vue'
-import { start } from './stores/start'
+import { gameControl } from './stores/start'
 
-const game = start()
+const game = gameControl()
 </script>
 
-<style scoped></style>
+<style scoped>
+h1 {
+  margin-bottom: 20px;
+}
+</style>
