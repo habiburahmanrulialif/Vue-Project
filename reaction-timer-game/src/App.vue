@@ -1,13 +1,16 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-</script>
-
 <template>
   <div>Reaction Timer</div>
+  <button @click="game.start">Play</button>
 
-  <RouterView />
+  <Block />
 </template>
 
-<style scoped>
+<script setup>
+import Block from './views/Blocks.vue'
+import Result from './views/Results.vue'
+import { start } from './stores/start'
 
-</style>
+const game = start()
+</script>
+
+<style scoped></style>
