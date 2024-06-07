@@ -8,16 +8,14 @@ export const gameControl = defineStore('gameControl', () => {
   const timer = ref(null)
   const reactionTime = ref(0)
   const hitBox = ref(false)
-  const result = ref('Click here when the color change!')
+  const result = ref(null)
 
   function start() {
     delay.value = 2000 + Math.random() * 5000
     this.isPlaying = true
-    console.log(delay.value)
     setTimeout(() => {
       this.greenBox = true
       this.hitBox = true
-      console.log(hitBox.value)
       this.timer = setInterval(() => {
         reactionTime.value += 10
       }, 10)
@@ -27,15 +25,14 @@ export const gameControl = defineStore('gameControl', () => {
   function stop() {
     clearInterval(this.timer)
     this.hitBox = false
-    this.result = reactionTime.value +" "+"ms"
-    console.log(reactionTime.value)
+    this.result = reactionTime.value
   }
 
   function reset() {
     this.isPlaying = false
     this.greenBox = false
     this.hitBox = false
-    this.result = 'Click here when the color change!'
+    this.result = null
     reactionTime.value = 0
   }
 

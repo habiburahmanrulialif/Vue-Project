@@ -1,6 +1,6 @@
 <template>
   <div class="block" @click="handleClick" :class="{ green: game.greenBox }">
-    <Results :result="game.result"/>
+    <Results :result="game.result" />
   </div>
 </template>
 
@@ -14,19 +14,24 @@ function handleClick() {
     game.stop()
   }
 }
-
-
 </script>
 
 <style scoped>
 .block {
   width: 400px;
+  height: 200px;
   border-radius: 20px;
   color: white;
   text-align: center;
-  padding: 100px 0;
+  padding: 0;
   margin: 40px auto;
   border: solid;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 .green {
   background-color: green;
