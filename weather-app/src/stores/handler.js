@@ -2,11 +2,10 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const handlerStore = defineStore('handler', () => {
-  const count = ref(0)
-  const doubleCount = computed(() => count.value * 2)
-  function increment() {
-    count.value++
-  }
+  const modalActive = ref(false)
 
-  return { count, doubleCount, increment }
+  function modalhandler() {
+    modalActive.value = !modalActive.value;
+  }
+  return { modalActive, modalhandler }
 })
