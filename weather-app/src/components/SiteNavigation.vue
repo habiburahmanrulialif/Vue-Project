@@ -10,7 +10,6 @@
 
       <div class="flex gap-3 flex-1 justify-end">
         <i class="fa-solid fa-circle-info text-xl hover:text-weather-secondary duration-150 cursor-pointer" @click="handler.modalhandler"></i>
-        <i class="fa-solid fa-plus text-xl hover:text-weather-secondary duration-150 cursor-pointer"></i>
       </div>
 
       <BaseModal>
@@ -27,15 +26,7 @@
             <li>
               Pilih salah satu kota dari pilihan yang muncul.
             </li>
-            <li>
-              Lacak kota dengan mengklik ikon "+" di kanan atas. Ini akan menyimpan kota untuk dilihat pada lain waktu di halaman beranda.
-            </li>
           </ol>
-
-          <h2 class="text-2xl">Menghapus kota yang telah dilacak:</h2>
-          <p>
-            Jika Anda tidak ingin lagi melacak kota, cukup pilih kota di halaman beranda. Di bagian bawah halaman, akan ada opsi untuk menghapus kota.
-          </p>
         </h1>
       </BaseModal>
     </nav>

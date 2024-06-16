@@ -25,12 +25,24 @@
 <script setup>
 import { ref } from 'vue';
 import { mapSearch } from '../stores/handler.js';
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
 
 const previewCity = (searchResult) => {
-  console.log(searchResult)
+  console.log(searchResult);
+  const [city, state] = searchResult.properties.full_address.split(",");
+  console.log(city, state);
+  router.push({
+    name: "cityView",
+    params: { state: state.replaceAll(" ", ""), city: city },
+    query: {
+      lat: searchResult.geometry.coordinates[1],
+      lng: searchResult.geometry.coordinates[0],
+      preview: false
+    }
+  })
 }
-
-
 
 const searchQuery = ref("")
 const search = mapSearch()
