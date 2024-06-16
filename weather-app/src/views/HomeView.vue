@@ -13,7 +13,7 @@
         </p>
         <template v-else>
           <li v-for="searchResult in search.mapboxSearchResults" :key="searchResult.id"
-            class="py-2 cursor-pointer text-white">
+            class="py-2 cursor-pointer text-white" @click="previewCity(searchResult)">
             {{ searchResult.properties.full_address }}
           </li>
         </template>
@@ -26,8 +26,13 @@
 import { ref } from 'vue';
 import { mapSearch } from '../stores/handler.js';
 
-const searchQuery = ref("")
+const previewCity = (searchResult) => {
+  console.log(searchResult)
+}
 
+
+
+const searchQuery = ref("")
 const search = mapSearch()
 
 const getResult = () => {
